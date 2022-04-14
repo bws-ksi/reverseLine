@@ -3,7 +3,7 @@ let line = 'I like JavaScript language five six seven';
 console.log('Original line: ' + line);
 console.log('==============================');
 // line to array
-const ArrFromStr = line.split(' ');
+//const ArrFromStr = line.split(' ');
 
 
 // простецкий способ revers
