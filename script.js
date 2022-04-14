@@ -1,4 +1,5 @@
 let line = 'I like JavaScript language five six seven';
+
 console.log('Original line: ' + line);
 console.log('==============================');
 // line to array
@@ -6,9 +7,11 @@ const ArrFromStr = line.split(' ');
 
 
 // простецкий способ revers
-
-console.log(ArrFromStr.reverse().join(" "));
-
+function reverseLine1(line) {
+  const ArrFromStr = line.split(' ');
+  console.log(ArrFromStr.reverse().join(" "));
+}
+reverseLine1(line);
 console.log('==============================');
 
 
@@ -17,12 +20,16 @@ console.log('==============================');
 
 // замороченный способ через FOR
 
-const newArray = [];
-for (let i = ArrFromStr.length; i >= 0; i--) {
-  newArray.unshift(ArrFromStr[i]);  
+function reverseLine2(line) {
+  const ArrFromStr = line.split(' ');
+  const newArray = [];
+  for (let i = ArrFromStr.length - 1 ; i >= 0; i--) {
+    //newArray.unshift(ArrFromStr[i]);
+    newArray.push(ArrFromStr[i]);  
+  }
+  console.log(newArray.join(" "));
 }
-console.log(newArray.join(" "));
-
+reverseLine2(line);
 console.log('==============================');
 
 
@@ -31,13 +38,11 @@ console.log('==============================');
 
 // замороченный способ через forEach
 
-const newArray2 = [];
-ArrFromStr.forEach( (item) => newArray2.push(item)  );
-console.log(newArray2.join(" "));
-
-//  !!!!МАААЛЕНЬКАЯ ремарка!!!
-// изначально задумывалось что в forEach будет браться первый
-// элемент оригинального массива и методом unshift() будет 
-// добавляться в НАЧАЛО нового массива. но на практике 
-// оказалось что forEach берет ПОСЛЕДНИЙ элемент и поэтому
-// пришлось "пушить" в конец нового элемента
+function reverseLine3(line){
+  const ArrFromStr = line.split(' ');
+  const newArray2 = [];
+  //ArrFromStr.forEach( (item) => newArray2.push(item)  );
+  ArrFromStr.forEach( (item) => newArray2.unshift(item)  );
+  console.log(newArray2.join(" "));
+};
+reverseLine3(line);
